@@ -1,0 +1,1153 @@
+{
+	"info": {
+		"_postman_id": "58036fdc-d76e-4c22-998b-2424472c8529",
+		"name": "Product_Collection",
+		"description": "# Introduction\n\nAPI endpoints for the CRUD operations on the Users, Items and Categories in Product.\n\n# Authentication\n\nThe Authentication is the Token based Authentication, the token needs to be sent as follows in headers:\n\nKey: Authorization\n\nValue: Token\n\nThe Sample Valid token is sent as part of the below requests for succesful calls. The token can also be generated using the **/api-token-auth/** route by passing the correct username and password.\n\n# Error Codes\n\n400: BAD_REQUEST(Missing any required field or try to create a new item with an already existing sku reults in 400 status code.)\n\n401: UN_AUTHORIZED(Sending the wrong token results in 401 status code)\n\n404: NOT_FOUND(Trying to fetch or update the item by sending wrong sku id results in the 404 status code.)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32908544"
+	},
+	"item": [
+		{
+			"name": "createuser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"user2\",\r\n  \"email\": \"user1@gmail.com\",\r\n  \"password\": \"Password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.80.227.170:8000/products/create_user/",
+					"protocol": "http",
+					"host": [
+						"3",
+						"80",
+						"227",
+						"170"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"create_user",
+						""
+					]
+				},
+				"description": "To create a new user"
+			},
+			"response": [
+				{
+					"name": "http://3.80.227.170:8000/products/items/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"user2\",\r\n  \"email\": \"user1@gmail.com\",\r\n  \"password\": \"Password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.80.227.170:8000/products/create_user/",
+							"protocol": "http",
+							"host": [
+								"3",
+								"80",
+								"227",
+								"170"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"create_user",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 17:07:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.16"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"user2\",\n    \"email\": \"user1@gmail.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api-token-auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"user1\",\r\n  \"password\": \"Password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/products/api-token-auth/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"api-token-auth",
+						""
+					]
+				},
+				"description": "To get the Token by passing the username and password in the body"
+			},
+			"response": [
+				{
+					"name": "http://3.80.227.170:8000/products/api-token-auth/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"user1\",\r\n  \"password\": \"Password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.80.227.170:8000/products/api-token-auth/",
+							"protocol": "http",
+							"host": [
+								"3",
+								"80",
+								"227",
+								"170"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"api-token-auth",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 17:17:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.16"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"c065b9adf3c5e5788cb56a1d4f825fd289201ce7\"\n}"
+				}
+			]
+		},
+		{
+			"name": "items",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sku\": \"ABC-9500\",\r\n  \"name\": \"Beeswax\",\r\n  \"category\": \"Electronics\",\r\n  \"tags\": \"gadget, tech\",\r\n  \"stock_status\": \"in_stock\",\r\n  \"available_stock\": 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.80.227.170:8000/products/items/",
+					"protocol": "http",
+					"host": [
+						"3",
+						"80",
+						"227",
+						"170"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"items",
+						""
+					]
+				},
+				"description": "To create a new item"
+			},
+			"response": [
+				{
+					"name": "http://3.80.227.170:8000/products/items/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sku\": \"ABC-9512\",\r\n  \"name\": \"Beeswax\",\r\n  \"category\": \"Electronics\",\r\n  \"tags\": \"gadget, tech\",\r\n  \"stock_status\": \"in_stock\",\r\n  \"available_stock\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.80.227.170:8000/products/items/",
+							"protocol": "http",
+							"host": [
+								"3",
+								"80",
+								"227",
+								"170"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"items",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 17:22:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.16"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, DELETE, POST, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"sku\": \"ABC-9512\",\n    \"name\": \"Beeswax\",\n    \"category\": \"Electronics\",\n    \"tags\": \"gadget, tech\",\n    \"stock_status\": \"in_stock\",\n    \"available_stock\": 50,\n    \"created_at\": \"2024-02-12T17:22:47.528393Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Bundles\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.80.227.170:8000/products/categories/",
+					"protocol": "http",
+					"host": [
+						"3",
+						"80",
+						"227",
+						"170"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"categories",
+						""
+					]
+				},
+				"description": "To create a New Category"
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Clothing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.80.227.170:8000/products/categories/",
+							"protocol": "http",
+							"host": [
+								"3",
+								"80",
+								"227",
+								"170"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"categories",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 18:01:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.16"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, DELETE, POST, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Clothing\"\n}"
+				}
+			]
+		},
+		{
+			"name": "items/sku",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.80.227.170:8000/products/items/ABC-9512",
+					"protocol": "http",
+					"host": [
+						"3",
+						"80",
+						"227",
+						"170"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"items",
+						"ABC-9512"
+					]
+				},
+				"description": "To get the item datail by passing sku"
+			},
+			"response": [
+				{
+					"name": "items/sku",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://3.80.227.170:8000/products/items/ABC-9512",
+							"protocol": "http",
+							"host": [
+								"3",
+								"80",
+								"227",
+								"170"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"items",
+								"ABC-9512"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 13 Feb 2024 02:46:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.16"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, DELETE, POST, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						},
+						{
+							"key": "Expires",
+							"value": "Tue, 13 Feb 2024 02:49:59 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=600"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"sku\": \"ABC-9512\",\n    \"name\": \"Beeswax\",\n    \"category\": \"Electronics\",\n    \"tags\": \"gadget, tech\",\n    \"stock_status\": \"in_stock\",\n    \"available_stock\": 50,\n    \"created_at\": \"2024-02-12T17:22:47.528393Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "items/?Category=Electronics",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.80.227.170:8000/products/items/?Category=Electronics",
+					"protocol": "http",
+					"host": [
+						"3",
+						"80",
+						"227",
+						"170"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"items",
+						""
+					],
+					"query": [
+						{
+							"key": "Category",
+							"value": "Electronics"
+						}
+					]
+				},
+				"description": "To get the item based on Category(Query Params)"
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://3.80.227.170:8000/products/items/?Category=Electronics",
+							"protocol": "http",
+							"host": [
+								"3",
+								"80",
+								"227",
+								"170"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"items",
+								""
+							],
+							"query": [
+								{
+									"key": "Category",
+									"value": "Electronics"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 18:12:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.16"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, DELETE, POST, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "764"
+						},
+						{
+							"key": "Expires",
+							"value": "Mon, 12 Feb 2024 18:22:33 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=600"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"sku\": \"MBA123\",\n            \"name\": \"name1\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T15:48:09.209341Z\"\n        },\n        {\n            \"id\": 2,\n            \"sku\": \"MBA1234\",\n            \"name\": \"name1\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T16:54:29.329805Z\"\n        },\n        {\n            \"id\": 3,\n            \"sku\": \"ABC-9500\",\n            \"name\": \"Beeswax\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T17:18:31.967014Z\"\n        },\n        {\n            \"id\": 4,\n            \"sku\": \"ABC-9512\",\n            \"name\": \"Beeswax\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T17:22:47.528393Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "items/?Category=Electronics&stock_status=in_stock",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.80.227.170:8000/products/items/?Category=Electronics&stock_status=in_stock",
+					"protocol": "http",
+					"host": [
+						"3",
+						"80",
+						"227",
+						"170"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"items",
+						""
+					],
+					"query": [
+						{
+							"key": "Category",
+							"value": "Electronics"
+						},
+						{
+							"key": "stock_status",
+							"value": "in_stock"
+						}
+					]
+				},
+				"description": "To get the item based on Category and Stock status(Query Params)"
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://3.80.227.170:8000/products/items/?Category=Electronics&stock_status=in_stock",
+							"protocol": "http",
+							"host": [
+								"3",
+								"80",
+								"227",
+								"170"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"items",
+								""
+							],
+							"query": [
+								{
+									"key": "Category",
+									"value": "Electronics"
+								},
+								{
+									"key": "stock_status",
+									"value": "in_stock"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 18:15:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.16"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, DELETE, POST, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "764"
+						},
+						{
+							"key": "Expires",
+							"value": "Mon, 12 Feb 2024 18:25:44 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=600"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"sku\": \"MBA123\",\n            \"name\": \"name1\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T15:48:09.209341Z\"\n        },\n        {\n            \"id\": 2,\n            \"sku\": \"MBA1234\",\n            \"name\": \"name1\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T16:54:29.329805Z\"\n        },\n        {\n            \"id\": 3,\n            \"sku\": \"ABC-9500\",\n            \"name\": \"Beeswax\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T17:18:31.967014Z\"\n        },\n        {\n            \"id\": 4,\n            \"sku\": \"ABC-9512\",\n            \"name\": \"Beeswax\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T17:22:47.528393Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "items/?Category=Electronics&stock_status=in_stock&start_date=2024-02-12&end_date=2024-02-13",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.80.227.170:8000/products/items/?Category=Electronics&stock_status=in_stock&start_date=2024-02-12&end_date=2024-02-13",
+					"protocol": "http",
+					"host": [
+						"3",
+						"80",
+						"227",
+						"170"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"items",
+						""
+					],
+					"query": [
+						{
+							"key": "Category",
+							"value": "Electronics"
+						},
+						{
+							"key": "stock_status",
+							"value": "in_stock"
+						},
+						{
+							"key": "start_date",
+							"value": "2024-02-12"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-02-13"
+						}
+					]
+				},
+				"description": "To get the item based on Category and Stock Status and start and end dates(Query Params)"
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://3.80.227.170:8000/products/items/?Category=Electronics&stock_status=in_stock&start_date=2024-02-12&end_date=2024-02-13",
+							"protocol": "http",
+							"host": [
+								"3",
+								"80",
+								"227",
+								"170"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"items",
+								""
+							],
+							"query": [
+								{
+									"key": "Category",
+									"value": "Electronics"
+								},
+								{
+									"key": "stock_status",
+									"value": "in_stock"
+								},
+								{
+									"key": "start_date",
+									"value": "2024-02-12"
+								},
+								{
+									"key": "end_date",
+									"value": "2024-02-13"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 18:20:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.16"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, DELETE, POST, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "764"
+						},
+						{
+							"key": "Expires",
+							"value": "Mon, 12 Feb 2024 18:30:37 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=600"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"sku\": \"MBA123\",\n            \"name\": \"name1\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T15:48:09.209341Z\"\n        },\n        {\n            \"id\": 2,\n            \"sku\": \"MBA1234\",\n            \"name\": \"name1\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T16:54:29.329805Z\"\n        },\n        {\n            \"id\": 3,\n            \"sku\": \"ABC-9500\",\n            \"name\": \"Beeswax\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T17:18:31.967014Z\"\n        },\n        {\n            \"id\": 4,\n            \"sku\": \"ABC-9512\",\n            \"name\": \"Beeswax\",\n            \"category\": \"Electronics\",\n            \"tags\": \"gadget, tech\",\n            \"stock_status\": \"in_stock\",\n            \"available_stock\": 50,\n            \"created_at\": \"2024-02-12T17:22:47.528393Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "items/sku",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sku\": \"ABC-9500\",\r\n  \"name\": \"Beeswax\",\r\n  \"category\": \"Electronics\",\r\n  \"tags\": \"gadget, tech\",\r\n  \"stock_status\": \"out_of_stock\",\r\n  \"available_stock\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.80.227.170:8000/products/items/ABC-9500",
+					"protocol": "http",
+					"host": [
+						"3",
+						"80",
+						"227",
+						"170"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"items",
+						"ABC-9500"
+					]
+				},
+				"description": "To update an existing item using sku"
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token c065b9adf3c5e5788cb56a1d4f825fd289201ce7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sku\": \"ABC-9500\",\r\n  \"name\": \"Beeswax\",\r\n  \"category\": \"Electronics\",\r\n  \"tags\": \"gadget, tech\",\r\n  \"stock_status\": \"out_of_stock\",\r\n  \"available_stock\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.80.227.170:8000/products/items/ABC-9500",
+							"protocol": "http",
+							"host": [
+								"3",
+								"80",
+								"227",
+								"170"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"items",
+								"ABC-9500"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 18:23:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.16"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, DELETE, POST, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						},
+						{
+							"key": "Expires",
+							"value": "Mon, 12 Feb 2024 18:33:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=600"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"sku\": \"ABC-9500\",\n    \"name\": \"Beeswax\",\n    \"category\": \"Electronics\",\n    \"tags\": \"gadget, tech\",\n    \"stock_status\": \"in_stock\",\n    \"available_stock\": 50,\n    \"created_at\": \"2024-02-12T17:18:31.967014Z\"\n}"
+				}
+			]
+		}
+	]
+}
